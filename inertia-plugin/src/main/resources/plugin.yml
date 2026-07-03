@@ -1,7 +1,0 @@
-name: Inertia
-version: ${version}
-description: ${description}
-authors: ["ZaminMC", "SQD Studios", "Inertia Contributors"]
-website: https://github.com/ZaminMC/Inertia
-api-version: '1.21.11'
-main: net.inertiaorg.Inertia.plugin.InertiaPlugin

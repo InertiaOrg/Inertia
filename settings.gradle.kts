@@ -1,2 +1,4 @@
-rootProject.name = "Inertia"
-include(":inertia-api", ":inertia-core", ":inertia-simulation", ":inertia-packets", ":inertia-version", ":inertia-checks", ":inertia-testkit", ":inertia-plugin")
+rootProject.name = "inertia-parent"
+include(":inertia-api")
+include(":inertia-core")
+include(":inertia-testkit")
