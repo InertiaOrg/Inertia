@@ -2,6 +2,7 @@
 [![Build](https://img.shields.io/github/actions/workflow/status/InertiaOrg/Inertia/build.yml?style=flat-square)](https://github.com/SQD-Studios/ChamoItemSkins/actions)
 [![Static Badge](https://img.shields.io/badge/Documentation-8A2BE2?style=flat-square)](https://inertiaorg.github.io/starlight-docs/)
 [![Javadocs](https://img.shields.io/badge/Javadocs-ED8B00?style=flat-square)](https://inertiaorg.github.io/Inertia/)
+[![Static Badge](https://img.shields.io/badge/Jira-2684FF?style=flat-square)](https://inertiaorg.atlassian.net/)
 
 Inertia is an open-source Minecraft anti-cheat foundation focused on version-neutral engine design.
 
