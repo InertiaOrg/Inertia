@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(project(":inertia-core"))
+    implementation(project(":inertia-api"))
 
 
     // Testing
