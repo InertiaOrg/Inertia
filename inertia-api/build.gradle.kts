@@ -1,5 +1,5 @@
 plugins {
-    id("com.gradleup.shadow") version "9.5.1"
+    id("com.gradleup.shadow") version "9.6.1"
     id("java")
     id("org.jetbrains.dokka") version "2.2.0"
 }
