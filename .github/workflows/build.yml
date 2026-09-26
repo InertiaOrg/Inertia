@@ -26,4 +26,4 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew shadowJar
+        run: ./gradlew build
