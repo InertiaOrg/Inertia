@@ -2,33 +2,18 @@ name: Generate and Deploy Dokka Docs
 
 on:
   push:
-    branches: [ main, master ]   # adjust to your default branch
-  workflow_dispatch:             # allows manual triggering
-
-env:
-  # Set the base URL that Dokka uses for all links.
-  # If you host the docs at https://sqd-studios.github.io/jd/ChamoItemSkins,
-  # set this to '/jd/ChamoItemSkins' (with leading slash).
-  DOKKA_BASE_URL: '/'
-
-  # Where to place the generated files on the deployment branch.
-  # Leave empty to deploy to the root of the branch.
-  # Example: 'jd/ChamoItemSkins' will make the docs available at
-  # https://<username>.github.io/<repository>/jd/ChamoItemSkins
-  # (or under a user site at https://<username>.github.io/jd/ChamoItemSkins
-  #  if you deploy to a repository named <username>.github.io).
-  DEPLOY_SUBDIR: ''
-  # --------------------------------------------------------------------
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: 25
@@ -41,11 +26,11 @@ jobs:
 
       - name: Prepare deployment artifact (with subdirectory)
         run: |
-          mkdir -p ./pages/${{ env.DEPLOY_SUBDIR }}
-          cp -r ./build/dokka/html/* ./pages/${{ env.DEPLOY_SUBDIR }}/
+          mkdir -p ./pages/
+          cp -r ./build/dokka/html/* ./pages/
 
       - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./pages
 
@@ -61,4 +46,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
