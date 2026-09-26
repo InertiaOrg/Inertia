@@ -1,25 +1,12 @@
 package io.github.inertiaorg.inertia.core.movement;
 
 import io.github.inertiaorg.inertia.api.debug.DebugTraceEntry;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceAccumulator;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceDecision;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceDecisionResult;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceDomain;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceRecord;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceSensitivity;
-import io.github.inertiaorg.inertia.api.evidence.EvidenceType;
+import io.github.inertiaorg.inertia.api.evidence.*;
 import io.github.inertiaorg.inertia.api.math.Vec3;
-import io.github.inertiaorg.inertia.api.movement.MovementContext;
-import io.github.inertiaorg.inertia.api.movement.MovementDecision;
-import io.github.inertiaorg.inertia.api.movement.MovementDelta;
-import io.github.inertiaorg.inertia.api.movement.MovementEvidenceType;
-import io.github.inertiaorg.inertia.api.movement.MovementPrediction;
-import io.github.inertiaorg.inertia.api.movement.MovementProcessor;
-import io.github.inertiaorg.inertia.api.movement.MovementState;
-import io.github.inertiaorg.inertia.api.movement.PredictionResult;
-import io.github.inertiaorg.inertia.api.movement.PredictionStatus;
+import io.github.inertiaorg.inertia.api.movement.*;
 import io.github.inertiaorg.inertia.api.version.MovementRules;
 import io.github.inertiaorg.inertia.core.debug.InMemoryDebugTrace;
+import org.jspecify.annotations.Nullable;
 
 public final class DefaultMovementProcessor implements MovementProcessor {
 
@@ -137,7 +124,7 @@ public final class DefaultMovementProcessor implements MovementProcessor {
         );
     }
 
-    private EvidenceRecord buildEvidence(PredictionResult predictionResult, MovementState state) {
+    private @Nullable EvidenceRecord buildEvidence(PredictionResult predictionResult, MovementState state) {
         if (predictionResult.status() == PredictionStatus.WITHIN_LIMITS) {
             return null;
         }

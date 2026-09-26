@@ -1,11 +1,12 @@
 package io.github.inertiaorg.inertia.api.movement;
 
+import org.jspecify.annotations.Nullable;
+
 public record PredictionResult(
         PredictionStatus status,
         MovementPrediction prediction,
         MovementState state,
-        MovementEvidenceType evidenceType,
+        @Nullable MovementEvidenceType evidenceType,
         String reason
 ) {
 }
-

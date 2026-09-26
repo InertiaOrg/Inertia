@@ -23,5 +23,6 @@ High-level findings:
 * version handling becomes expensive when engine code depends on server revisions instead of behavior groups
 * debug output is most useful when it records why evidence was counted, reduced, or ignored
 
-Inertia should model these needs directly through neutral frames, version profiles, false-positive context, evidence accumulation, and debug traces.
+Inertia should model these needs directly through neutral frames, version profiles, false-positive context, evidence
+accumulation, and debug traces.
 

@@ -1,17 +1,18 @@
 package io.github.inertiaorg.inertia.api.version;
 
 import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 public record GameVersion(
         int major,
         int minor,
         int patch,
-        Integer protocolNumber,
+        @Nullable Integer protocolNumber,
         @NonNull String displayName
 ) implements Comparable<GameVersion> {
 
     public static GameVersion of(int major, int minor, int patch) {
-        return new GameVersion(major, minor, patch, null, major + "." + minor + "." + patch);
+        return new GameVersion(major, minor, patch, null, String.format("%d.%d.%d", major, minor, patch));
     }
 
     @Override
