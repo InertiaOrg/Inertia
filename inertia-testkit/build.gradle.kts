@@ -1,31 +1,25 @@
 plugins {
-    id("com.gradleup.shadow") version "9.4.3"
-    id("java")
-    id("org.jetbrains.dokka") version "2.2.0"
+    id("shared")
+    alias(libs.plugins.dokka)
 }
 
 dependencies {
     implementation(project(":inertia-core"))
     implementation(project(":inertia-api"))
 
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter)
+    testRuntimeOnly(libs.junit.platform)
 
-    // Testing
-    testImplementation(platform("org.junit:junit-bom:6.1.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-    dokkaPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:2.2.0") // Make our code look like Java and not like kotlin
+    dokkaPlugin(libs.dokkajava)
 }
 
-tasks {
-    test {
-        useJUnitPlatform()
-    }
+tasks.test {
+    useJUnitPlatform()
 }
 
 dokka {
     pluginsConfiguration.html {
         footerMessage.set("© Inertia Contributors. Inertia is licensed under the MIT License")
     }
-
 }

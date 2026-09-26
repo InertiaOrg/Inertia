@@ -94,13 +94,7 @@ public final class DefaultEvidenceAccumulator implements EvidenceAccumulator {
     }
 
     private void compact(long tick) {
-        Iterator<StoredEvidence> iterator = retainedEvidence.iterator();
-        while (iterator.hasNext()) {
-            StoredEvidence retained = iterator.next();
-            if (retained.weightAt(tick, decayPerTick) < forgetThreshold) {
-                iterator.remove();
-            }
-        }
+        retainedEvidence.removeIf(retained -> retained.weightAt(tick, decayPerTick) < forgetThreshold);
     }
 
     private record StoredEvidence(long tick, double appliedWeight) {
