@@ -1,18 +1,14 @@
 package io.github.inertiaorg.inertia.api.version;
 
-import java.util.Objects;
+import org.jspecify.annotations.NonNull;
 
 public record GameVersion(
         int major,
         int minor,
         int patch,
         Integer protocolNumber,
-        String displayName
+        @NonNull String displayName
 ) implements Comparable<GameVersion> {
-
-    public GameVersion {
-        Objects.requireNonNull(displayName, "displayName");
-    }
 
     public static GameVersion of(int major, int minor, int patch) {
         return new GameVersion(major, minor, patch, null, major + "." + minor + "." + patch);
@@ -31,4 +27,3 @@ public record GameVersion(
         return Integer.compare(patch, other.patch);
     }
 }
-

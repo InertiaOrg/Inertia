@@ -13,3 +13,7 @@ repositories {
         url = uri("https://repo.papermc.io/repository/maven-public/")
     }
 }
+
+dependencies {
+    implementation("org.jspecify:jspecify:1.0.1")
+}
