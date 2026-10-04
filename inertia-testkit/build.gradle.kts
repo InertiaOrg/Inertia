@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":inertia-core"))
-    implementation(project(":inertia-api"))
+    testImplementation(project(":inertia-core"))
+    testImplementation(project(":inertia-api"))
 
     testImplementation(platform(libs.junit.bom))
     testImplementation(libs.junit.jupiter)
